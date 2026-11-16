@@ -53,13 +53,20 @@ Generation prompts are saved in `.art/hero-wallpapers/`.
 
 ### Optional wallpapers
 
-[extras/backgrounds/](extras/backgrounds/) contains 14 optional wallpapers:
+[extras/backgrounds/](extras/backgrounds/) contains 15 optional wallpapers:
 ten sparse line drawings, *Lightspeed Live*, *Starfield Live*, and the
-cinematic *Battle Station* and *Galaxy*. They stay out of the rotation until you add them.
+cinematic *Battle Station*, *Galaxy*, and *Galaxy OLED*. They stay out of the
+rotation until you add them.
 
 [Galaxy](extras/backgrounds/19-hero-galaxy.png) is a sweeping blue spiral
 galaxy with a small X-wing for scale, generated at 1586 × 992. Its prompt is
 saved in `.art/hero-wallpapers/galaxy-prompt.txt`.
+
+[Galaxy OLED](extras/backgrounds/20-hero-galaxy-oled.png) uses a thin blue
+galactic arc and a small Millennium Falcon against true black. At its native
+1586 × 992 resolution, 85.8% of pixels are exactly `#000000`. Generated with
+the built-in image tool; the prompt is saved in
+`.art/hero-wallpapers/galaxy-oled-prompt.txt`.
 
 ![The ten line-art wallpapers, cropped to their middles](.art/wallpapers.png)
 
