@@ -13,11 +13,11 @@ seeing red; the one red blade keeps a white core and a red light enough to
 survive protanopia.
 
 Writes, next to this directory:
-  backgrounds/NN-name.png         stills
-  backgrounds/intros/NN-name.mp4  the same drawing assembling itself; Omarchy
+  extras/backgrounds/NN-name.png         stills
+  extras/backgrounds/intros/NN-name.mp4  the same drawing assembling itself; Omarchy
                                   plays it when the theme or boot lands on
                                   that still
-  backgrounds/NN-*-live.mp4       looping video wallpapers
+  extras/backgrounds/NN-*-live.mp4       looping video wallpapers
   unlock.png, preview-unlock.png  boot splash emblem and its preview
 
 preview.png is a real screenshot; "protanopia-preview" re-renders it as a
@@ -111,7 +111,7 @@ def to_bytes(image):
 
 def save_still(image, name):
     drawn = np.count_nonzero(image.any(axis=2)) / (image.shape[0] * image.shape[1])
-    path = ROOT / "backgrounds" / name
+    path = ROOT / "extras" / "backgrounds" / name
     Image.fromarray(to_bytes(image), mode="RGB").save(path, optimize=True)
     print(f"wrote {path.relative_to(ROOT)}  drawn pixels: {drawn:.3%}")
 
@@ -453,7 +453,7 @@ def intro(name):
         for _ in range(hold):
             yield final
 
-    save_video(frames(), ROOT / "backgrounds" / "intros" / f"{stem}.mp4", (size.w, size.h))
+    save_video(frames(), ROOT / "extras" / "backgrounds" / "intros" / f"{stem}.mp4", (size.w, size.h))
 
 
 def live(name):
@@ -461,7 +461,7 @@ def live(name):
     size = Canvas(VIDEO_SCALE)
     count = int(seconds * FPS)
     frames = (art(Canvas(VIDEO_SCALE), index / count) for index in range(count))
-    save_video(frames, ROOT / "backgrounds" / f"{stem}.mp4", (size.w, size.h))
+    save_video(frames, ROOT / "extras" / "backgrounds" / f"{stem}.mp4", (size.w, size.h))
 
 
 def emblem():
@@ -521,7 +521,7 @@ def contact_sheet():
     rows = -(-len(names) // columns)
     sheet = Image.new("RGB", (columns * tile_w + (columns + 1) * gap, rows * tile_h + (rows + 1) * gap), WINDOW)
     for index, name in enumerate(names):
-        tile = Image.open(ROOT / "backgrounds" / f"{STILLS[name][0]}.png")
+        tile = Image.open(ROOT / "extras" / "backgrounds" / f"{STILLS[name][0]}.png")
         # Crop to the middle before shrinking, so hairlines survive at this size.
         tile = tile.crop((W // 4, H // 4, W * 3 // 4, H * 3 // 4)).resize((tile_w, tile_h), Image.LANCZOS)
         sheet.paste(tile, (gap + (index % columns) * (tile_w + gap), gap + (index // columns) * (tile_h + gap)))
@@ -537,7 +537,7 @@ OTHER = {
 }
 
 if __name__ == "__main__":
-    (ROOT / "backgrounds").mkdir(exist_ok=True)
+    (ROOT / "extras" / "backgrounds").mkdir(parents=True, exist_ok=True)
     for name in sys.argv[1:] or ["stills"]:
         if name == "stills":
             for each in STILLS:

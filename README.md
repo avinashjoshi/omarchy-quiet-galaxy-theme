@@ -2,8 +2,8 @@
 
 A quiet, dark Star Wars theme for [Omarchy](https://omarchy.org): near-black
 greys, grey text, and opening-crawl yellow as the one accent. The colours are
-chosen for protanopia. The wallpaper collection combines sparse hairline
-drawings with cinematic AI-generated artwork, all designed for a dark desktop.
+chosen for protanopia. The default wallpaper collection contains five cinematic AI-generated
+wallpapers. Additional stills, line art and video loops are optional extras.
 
 ![Star Wars theme](preview.png)
 
@@ -37,46 +37,50 @@ and for anything asking for attention.
 **T3 Code** (`t3code.json`): neutral grey surfaces and input borders instead
 of the accent-tinted ones T3 Code derives by default.
 
-**Line-art backgrounds**: ten original, generated drawings on the theme's
-darkest grey. The share of pixels that carry any drawing at all:
+**Default backgrounds**: five AI-generated wallpapers in the normal picker
+and rotation. The numbers match the full collection:
 
-| | Drawn pixels |
-|---|---|
-| *Twin Suns* | 0.105% |
-| *Lightspeed* | 0.319% |
-| *Starfield* | 0.006% |
-| *Saber* | 0.242% |
-| *Crossed Blades* | 0.465% |
-| *Dark Side* | 0.247% |
-| *No Moon* | 0.123% |
-| *Dune Sea* | 0.488% |
-| *Ringed Planet* | 0.126% |
-| *Star Chart* | 0.367% |
+| # | Wallpaper | Native resolution |
+|---|---|---|
+| 13 | [Twin Suns](backgrounds/13-hero-twin-suns.png) | 1672 × 941 |
+| 14 | [Blade](backgrounds/14-hero-blade.png) | 1672 × 941 |
+| 16 | [Death Star](backgrounds/16-hero-death-star.png) | 1586 × 992 |
+| 17 | [Crossed Blades](backgrounds/17-hero-crossed-blades.png) | 1586 × 992 |
+| 18 | [Millennium Falcon](backgrounds/18-hero-millennium-falcon.png) | 1586 × 992 |
 
-![The ten wallpapers, cropped to their middles](.art/wallpapers.png)
+These are native generated PNGs without upscaling or intro animations.
+Generation prompts are saved in `.art/hero-wallpapers/`.
 
-![Twin Suns on an empty desktop](.art/desktop.png)
+### Optional wallpapers
 
-**Cinematic backgrounds**: six AI-generated stills are included in the main
-theme and appear in the normal background picker and rotation:
+[extras/backgrounds/](extras/backgrounds/) contains the other 13 wallpapers:
+ten sparse line drawings, *Lightspeed Live*, *Starfield Live*, and the
+cinematic *Battle Station*. They stay out of the rotation until you add them.
 
-- *Hero Twin Suns*, *Hero Blade*, and *Hero Battle Station* (1672 × 941).
-- *Hero Death Star*, *Hero Crossed Blades* (light and dark side), and
-  *Hero Millennium Falcon* (1586 × 992).
+![The ten line-art wallpapers, cropped to their middles](.art/wallpapers.png)
 
-These are the native generated PNGs, without upscaling. The sparse drawings
-remain first in the collection. Generation prompts are saved in
-`.art/hero-wallpapers/`. These stills do not have intro animations.
+To enable one extra, copy it into your personal wallpaper folder:
 
-**Intros** (`backgrounds/intros/`): each line-art still has a three-second clip of the
-drawing assembling itself. The suns rise over the horizon, the blades ignite,
-the stars stretch into streaks. Omarchy plays it when you switch to the theme
-or boot into it, then leaves the still. Turn them off with
-`omarchy theme bg intro disable`.
+```bash
+mkdir -p ~/.config/omarchy/backgrounds/star-wars
+cp ~/.config/omarchy/themes/star-wars/extras/backgrounds/01-twin-suns.png \
+   ~/.config/omarchy/backgrounds/star-wars/
+```
 
-**Video wallpapers**: *Lightspeed Live* (an 8-second loop of streaks flying
-past) and *Starfield Live* (12 seconds of twinkling stars), both as sparse as
-the stills.
+To enable all extras, including the line-art intro animations:
+
+```bash
+mkdir -p ~/.config/omarchy/backgrounds/star-wars
+cp -r ~/.config/omarchy/themes/star-wars/extras/backgrounds/. \
+      ~/.config/omarchy/backgrounds/star-wars/
+```
+
+The line-art stills have matching three-second animations in
+`extras/backgrounds/intros/`. Omarchy plays these on theme activation or boot
+when the matching still is selected and intros are enabled. Disable them with
+`omarchy theme bg intro disable`. The two video wallpapers are looping clips.
+Personal wallpapers also join the rotation; a fresh install has just the five
+defaults above.
 
 **Icons**: `Yaru-yellow-dark`.
 
@@ -110,7 +114,7 @@ stays as clear as ever. So the theme is built on that axis:
 - **Red and green differ in brightness as well as hue**, so a diff still reads
   when the hue difference is gone.
 - **Purple is kept darker than blue**, because without red the two share a hue.
-- **The one red blade** (*Dark Side*) keeps a white core, and its glow is a
+- **The line-art red blade** (*Dark Side*, in extras) keeps a white core, and its glow is a
   red light enough to hold 4.7:1 on the wallpaper under the simulation.
 
 `.art/cvd.py` simulates protanopia (Machado, Oliveira & Fernandes 2009, full
@@ -153,7 +157,9 @@ uv run --with numpy --with pillow .art/generate.py emblem unlock-preview contact
 
 ## License
 
-MIT, see [LICENSE](LICENSE). This is an unofficial fan theme. Star Wars is a
+Theme configuration and procedural artwork code: MIT, see [LICENSE](LICENSE).
+The AI-generated fan wallpapers are not a grant of rights to underlying
+Star Wars intellectual property. This is an unofficial fan theme. Star Wars is a
 trademark of Lucasfilm Ltd.; this project is not affiliated with or endorsed
 by Lucasfilm or Disney. The line art is drawn by the script in `.art/`; the cinematic wallpapers are
 AI-generated fan art. No film stills or logos are included. Star Wars names
