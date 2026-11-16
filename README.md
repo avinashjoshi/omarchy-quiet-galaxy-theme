@@ -2,8 +2,8 @@
 
 A quiet, dark Star Wars theme for [Omarchy](https://omarchy.org): near-black
 greys, grey text, and opening-crawl yellow as the one accent. The colours are
-chosen for protanopia, and the wallpapers are hairline drawings that leave
-almost the whole screen dark, each with a short intro animation.
+chosen for protanopia. The wallpaper collection combines sparse hairline
+drawings with cinematic AI-generated artwork, all designed for a dark desktop.
 
 ![Star Wars theme](preview.png)
 
@@ -37,8 +37,8 @@ and for anything asking for attention.
 **T3 Code** (`t3code.json`): neutral grey surfaces and input borders instead
 of the accent-tinted ones T3 Code derives by default.
 
-**Backgrounds**: ten original, generated drawings on the theme's darkest
-grey. The share of pixels that carry any drawing at all:
+**Line-art backgrounds**: ten original, generated drawings on the theme's
+darkest grey. The share of pixels that carry any drawing at all:
 
 | | Drawn pixels |
 |---|---|
@@ -57,7 +57,18 @@ grey. The share of pixels that carry any drawing at all:
 
 ![Twin Suns on an empty desktop](.art/desktop.png)
 
-**Intros** (`backgrounds/intros/`): each still has a three-second clip of the
+**Cinematic backgrounds**: six AI-generated stills are included in the main
+theme and appear in the normal background picker and rotation:
+
+- *Hero Twin Suns*, *Hero Blade*, and *Hero Battle Station* (1672 × 941).
+- *Hero Death Star*, *Hero Crossed Blades* (light and dark side), and
+  *Hero Millennium Falcon* (1586 × 992).
+
+These are the native generated PNGs, without upscaling. The sparse drawings
+remain first in the collection. Generation prompts are saved in
+`.art/hero-wallpapers/`. These stills do not have intro animations.
+
+**Intros** (`backgrounds/intros/`): each line-art still has a three-second clip of the
 drawing assembling itself. The suns rise over the horizon, the blades ignite,
 the stars stretch into streaks. Omarchy plays it when you switch to the theme
 or boot into it, then leaves the still. Turn them off with
@@ -72,10 +83,10 @@ the stills.
 **Boot splash** (`unlock.png`): the twin suns, used if you run
 `omarchy plymouth set by theme star-wars`.
 
-## Real Star Wars art
+## Official Star Wars art
 
-Film stills and official artwork belong to Lucasfilm, so none are in this
-repo. StarWars.com offers its own backgrounds to download, though:
+The included cinematic wallpapers are AI-generated fan art, not official
+artwork or film stills. StarWars.com also offers official backgrounds:
 
 - [Star Wars backgrounds on StarWars.com](https://www.starwars.com/news/star-wars-backgrounds)
   (1920x1080; the starfield, hyperspace and Star Destroyer interiors suit this
@@ -144,5 +155,6 @@ uv run --with numpy --with pillow .art/generate.py emblem unlock-preview contact
 
 MIT, see [LICENSE](LICENSE). This is an unofficial fan theme. Star Wars is a
 trademark of Lucasfilm Ltd.; this project is not affiliated with or endorsed
-by Lucasfilm or Disney. All artwork here is original line art, drawn by the
-script in `.art/`; no film images or logos are included.
+by Lucasfilm or Disney. The line art is drawn by the script in `.art/`; the cinematic wallpapers are
+AI-generated fan art. No film stills or logos are included. Star Wars names
+and depicted franchise designs remain the property of their respective owners.
