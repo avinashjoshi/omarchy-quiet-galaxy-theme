@@ -53,9 +53,22 @@ Generation prompts are saved in `.art/hero-wallpapers/`.
 
 ### Optional wallpapers
 
-[extras/backgrounds/](extras/backgrounds/) contains the other 13 wallpapers:
+[extras/backgrounds/](extras/backgrounds/) contains 14 optional wallpapers:
 ten sparse line drawings, *Lightspeed Live*, *Starfield Live*, and the
-cinematic *Battle Station*. They stay out of the rotation until you add them.
+cinematic *Battle Station*, and *Hero Blade Live*. They stay out of the
+rotation until you add them.
+
+*Hero Blade Live* is an eight-second, silent 30 fps loop of wallpaper 14 with
+a gently pulsing blue glow and traveling energy shimmer. It preserves the
+original composition at 1672 × 940 (one bottom row removed for H.264).
+To enable it:
+
+```bash
+mkdir -p ~/.config/omarchy/backgrounds/star-wars
+cp ~/.config/omarchy/themes/star-wars/extras/backgrounds/19-hero-blade-live.mp4 \
+   ~/.config/omarchy/backgrounds/star-wars/
+omarchy theme bg set ~/.config/omarchy/backgrounds/star-wars/19-hero-blade-live.mp4
+```
 
 ![The ten line-art wallpapers, cropped to their middles](.art/wallpapers.png)
 
@@ -148,6 +161,7 @@ hard to tell apart for you, please open an issue.
 ## Regenerating
 
 ```bash
+uv run --with numpy --with pillow .art/animate-blade.py       # cinematic blade loop
 uv run --with numpy .art/cvd.py              # palette report
 uv run --with numpy .art/cvd.py --search     # search for a better set of hues
 uv run --with numpy --with pillow .art/generate.py stills    # wallpapers
