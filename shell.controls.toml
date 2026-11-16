@@ -1,0 +1,24 @@
+# States sit on the blue/yellow axis, which protanopia leaves intact:
+# grey at rest, blue under the cursor or focus, yellow when selected.
+normal-color        = "#cfcfcf"
+normal-fill-alpha   = 0.04
+normal-border       = "#cfcfcf"
+normal-border-width = 1
+normal-border-alpha = 0.45
+hover-cursor-color        = "#9db3ff"
+hover-cursor-fill-alpha   = 0.08
+hover-cursor-border       = "#80a2f8"
+hover-cursor-border-width = 1
+hover-cursor-border-alpha = 0.9
+focus-color        = "#9db3ff"
+focus-fill-alpha   = 0.08
+focus-border       = "#80a2f8"
+focus-border-width = 1
+focus-border-alpha = 1.0
+selected-color        = "#ffe81f"
+selected-fill-alpha   = 0.10
+selected-border       = "#ffe81f"
+selected-border-width = 1
+selected-border-alpha = 0.9
+pressed-fill-alpha   = 0.12
+selection-fill-alpha = 0.30

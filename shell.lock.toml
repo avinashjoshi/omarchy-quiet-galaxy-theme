@@ -1,0 +1,13 @@
+# Lock field: grey at rest, saber blue while typing, orange on a wrong
+# password. Blue to orange is the swing protanopia keeps; red would just dim.
+background       = "#0b0b0c"
+background-alpha = 0.9
+text             = "#f5f5f5"
+placeholder      = "#7c7c82"
+text-error       = "#df7a21"
+border           = "#8e8e94"
+border-active    = "#80a2f8"
+border-error     = "#df7a21"
+border-alpha     = 1.0
+selection        = "#80a2f8"
+selection-alpha  = 0.40

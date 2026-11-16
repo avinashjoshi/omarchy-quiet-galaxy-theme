@@ -1,0 +1,52 @@
+{
+  "name": "Omarchy",
+  "appearance": "dark",
+  "canvas": "#161617",
+  "accent": "#ffe81f",
+  "colors": {
+    "chrome": "#161617",
+    "toolbar": "#161617",
+    "toolbarForeground": "#cfcfcf",
+    "toolbarBorder": "#55555a",
+
+    "surface": "#1c1c1e",
+    "surfaceRaised": "#222224",
+    "surfaceOverlay": "#222224",
+    "secondary": "#222224",
+    "secondaryForeground": "#cfcfcf",
+    "muted": "#222224",
+    "mutedForeground": "#9a9aa0",
+    "messageSurface": "#222224",
+    "messageForeground": "#cfcfcf",
+
+    "text": "#cfcfcf",
+    "textMuted": "#9a9aa0",
+    "placeholder": "#8e8e94",
+    "secondaryLabel": "#9a9aa0",
+    "iconMuted": "#8e8e94",
+    "border": "#55555a",
+    "input": "#6e6e74",
+    "focus": "#ffe81f",
+
+    "sidebar": "#101011",
+    "sidebarForeground": "#cfcfcf",
+    "sidebarMutedForeground": "#9a9aa0",
+    "sidebarBorder": "#55555a",
+    "sidebarRowHover": "#1b1b1c",
+    "sidebarRowActive": "#2a2a2d",
+    "sidebarRowSelected": "#313134",
+
+    "error": "#e6a69c",
+    "warning": "#efdf5d",
+
+    "codeBackground": "#101011",
+    "codeForeground": "#cfcfcf",
+
+    "terminalBackground": "#161617",
+    "terminalForeground": "#cfcfcf",
+    "terminalCursor": "#f5f5f5",
+    "terminalSelection": "#313134",
+    "terminalScrollbar": "#7c7c82",
+    "terminalScrollbarHover": "#8e8e94"
+  }
+}

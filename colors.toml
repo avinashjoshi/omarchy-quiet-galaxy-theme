@@ -1,0 +1,42 @@
+# Star Wars, the quiet cut
+#
+# Near-black greys (not pitch black, so panels and borders still read), grey
+# text, and opening-crawl yellow as the one accent. The hues are chosen for
+# protanopia: they stay apart from one another and legible on the background
+# when red light is missing, and nothing depends on telling red from green.
+# Check or re-derive them with .art/cvd.py.
+mode = "dark"
+
+accent = "#ffe81f"
+selection = "#313134"
+muted = "#7c7c82"
+
+background = "#161617"
+dark_background = "#101011"
+darker_background = "#0b0b0c"
+lighter_background = "#222224"
+
+foreground = "#cfcfcf"
+dark_foreground = "#66666b"
+light_foreground = "#e2e2e2"
+bright_foreground = "#f5f5f5"
+
+# One solid crawl-yellow line on the focused window, plain grey on the rest.
+hyprland_active_border = "rgba(ffe81fff)"
+hyprland_inactive_border = "rgba(4a4a4fff)"
+
+red = "#f29080"
+yellow = "#ffe81f"
+orange = "#df7a21"
+green = "#4ac855"
+cyan = "#69ffff"
+blue = "#80a2f8"
+magenta = "#be64f6"
+brown = "#8a6d3b"
+
+bright_red = "#ff9d8c"
+bright_yellow = "#fff27a"
+bright_green = "#86d8a4"
+bright_cyan = "#b8ffff"
+bright_blue = "#9db3ff"
+bright_magenta = "#ce68f4"

@@ -1,0 +1,12 @@
+# A failed password turns orange rather than red: against the blue and grey
+# of the other states it is the change a protanope sees most clearly.
+background       = "#161617"
+background-alpha = 1.0
+text             = "#cfcfcf"
+text-error       = "#df7a21"
+border           = "#55555a"
+border-error     = "#df7a21"
+border-alpha     = 1.0
+scrim            = "#0b0b0c"
+scrim-alpha      = 0.7
+accent           = "#ffe81f"

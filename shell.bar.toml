@@ -1,0 +1,9 @@
+# Dark bar, grey type. Anything asking for attention turns crawl yellow, the
+# brightest colour here whether or not you can see red.
+background       = "#0b0b0c"
+background-alpha = 1.0
+text             = "#c4c4c4"
+active           = "#ffe81f"
+scale-with-font  = true
+size-horizontal  = 26
+size-vertical    = 28
