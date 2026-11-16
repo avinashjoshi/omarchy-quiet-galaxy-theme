@@ -20,13 +20,31 @@ def prepare():
     left, top, right, bottom = box
     original = base[top:bottom, left:right].astype(np.float32)
     y, x = np.mgrid[top:bottom, left:right].astype(np.float32)
-    return base, box, original, x, y
+    # Reconstruct the unlit air behind the blade from adjacent dark pixels.
+    # Feather only the outer edges, preserving the hilt and the ground.
+    blend = np.clip((x - 716) / 240, 0, 1)[..., None]
+    air = original[:, 66:67] * (1 - blend) + original[:, 306:307] * blend
+    mask = (1 - smoothstep(38, 110, abs(x - 836)))
+    mask *= smoothstep(400, 435, y) * (1 - smoothstep(653, 668, y))
+    unlit = original * (1 - mask[..., None]) + air * mask[..., None]
+    return base, box, original, unlit, x, y
+
+
+def smoothstep(start, end, value):
+    value = np.clip((value - start) / (end - start), 0, 1)
+    return value * value * (3 - 2 * value)
 
 
 def frame_at(t, prepared):
-    base, (left, top, right, bottom), original, x, y = prepared
+    base, (left, top, right, bottom), original, unlit, x, y = prepared
+    t %= SECONDS
     phase = 2 * np.pi * t / SECONDS
-    # Every frequency completes an integer number of cycles: no loop reset.
+    # Off, ignite from emitter to tip, hold, retract, then rest before looping.
+    length = smoothstep(0.8, 1.45, t) * (1 - smoothstep(6.2, 6.7, t))
+    tip = 665 - 219 * length
+    softness = 3 + abs(x - 836) * 0.7
+    reveal = smoothstep(tip - softness, tip + softness, y) * min(1, length * 25)
+    rgb = unlit + (original - unlit) * reveal[..., None]
     pulse = 0.60 * np.sin(phase * 2) + 0.25 * np.sin(phase * 7 + 0.8)
     blue = np.maximum(original[..., 2] - original[..., 0], 0)
     lit = np.clip(blue / 75, 0, 1)
@@ -35,8 +53,14 @@ def frame_at(t, prepared):
     aura = np.exp(-((x - axis) / (13 + 2 * np.sin(phase * 3))) ** 2) * vertical
     ripple = np.sin((y - 446) / 24 - phase * 6) * lit * vertical
     # Local light only: the camera, hilt, ground and dark margins stay still.
-    delta = lit * pulse * 9 + aura * (6 + pulse * 5) + ripple * 3
-    rgb = original + delta[..., None] * np.array([0.30, 0.65, 1.0], dtype=np.float32)
+    delta = (lit * pulse * 9 + aura * (6 + pulse * 5) + ripple * 3) * reveal
+    # A compact white-blue tip leads the extending blade, rather than fading
+    # the entire sword in at once.
+    moving = 1 if 0.8 < t < 1.45 or 6.2 < t < 6.7 else 0
+    tip_glow = np.exp(-((x - 836) / 9) ** 2 - ((y - tip) / 7) ** 2)
+    tip_glow *= moving * min(1, length * 12)
+    rgb += delta[..., None] * np.array([0.30, 0.65, 1.0], dtype=np.float32)
+    rgb += tip_glow[..., None] * np.array([110, 175, 230], dtype=np.float32)
     result = base.copy()
     result[top:bottom, left:right] = np.clip(rgb, 0, 255).astype(np.uint8)
     return result

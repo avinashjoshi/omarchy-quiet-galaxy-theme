@@ -58,8 +58,9 @@ ten sparse line drawings, *Lightspeed Live*, *Starfield Live*, and the
 cinematic *Battle Station*, and *Hero Blade Live*. They stay out of the
 rotation until you add them.
 
-*Hero Blade Live* is an eight-second, silent 30 fps loop of wallpaper 14 with
-a gently pulsing blue glow and traveling energy shimmer. It preserves the
+*Hero Blade Live* is an eight-second, silent 30 fps loop of wallpaper 14 that starts
+unlit, ignites upward from the hilt, holds with a blue shimmer, and retracts
+before repeating. It preserves the
 original composition at 1672 × 940 (one bottom row removed for H.264).
 To enable it:
 
