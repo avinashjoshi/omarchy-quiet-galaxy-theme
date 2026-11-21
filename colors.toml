@@ -1,10 +1,10 @@
-# Star Wars, the quiet cut
+# Quiet Galaxy
 #
 # Near-black greys (not pitch black, so panels and borders still read), grey
 # text, and opening-crawl yellow as the one accent. The hues are chosen for
 # protanopia: they stay apart from one another and legible on the background
 # when red light is missing, and nothing depends on telling red from green.
-# Check or re-derive them with .art/cvd.py.
+# Check or re-derive them with cvd.py from the quiet-galaxy-art repository.
 mode = "dark"
 
 accent = "#ffe81f"
